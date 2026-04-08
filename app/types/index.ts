@@ -1,4 +1,4 @@
-// Send to Backend
+// What we send to the backend
 export interface UserRequest {
   input_mode: "mood" | "custom";
   mood?: "Sad" | "Happy" | "Mysterious" | "Energetic" | "Calm" | "Romantic";
@@ -11,7 +11,18 @@ export interface UserRequest {
   bpm: number;
 }
 
-// Sending Backend streams back
+// MIDI statistics from backend
+export interface MidiStats {
+  duration: number;
+  total_notes: number;
+  note_density: number;
+  pitch_range: number;
+  avg_velocity: number;
+  lowest_note: string;
+  highest_note: string;
+}
+
+// What the backend streams back
 export interface StreamEvent {
   type: "node_start" | "node_end" | "llm_token" | "complete";
   node?: string;
@@ -20,6 +31,10 @@ export interface StreamEvent {
   midi_path?: string;
   description?: string;
   passed?: boolean;
+  validation?: {
+    score: number;
+    stats: MidiStats;
+  };
 }
 
 // Node progress for UI
