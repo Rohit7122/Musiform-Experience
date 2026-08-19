@@ -12,6 +12,7 @@ import { generateMusic } from "./lib/api";
 import { UserRequest, NodeProgress, MidiStats } from "./types";
 
 // Load particles client-side only — no SSR
+// Background is purely decorative and does not need server rendering.
 const Background = dynamic(() => import("./components/Background"), {
   ssr: false,
 });
@@ -60,6 +61,7 @@ export default function Home() {
     setPassed(false);
     setValidation(undefined);
 
+    // Build payload to send to the backend generation API
     const request: UserRequest = {
       input_mode: inputMode,
       mood: inputMode === "mood" ? (mood as UserRequest["mood"]) : undefined,

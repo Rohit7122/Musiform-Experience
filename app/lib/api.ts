@@ -1,6 +1,8 @@
 import { UserRequest, StreamEvent } from "../types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// API helper for sending music generation requests and processing SSE events.
+const API_URL =
+  process.env.NEXT_PUBLIC_MUSIFORM_API_URL || "http://localhost:8000";
 
 export async function generateMusic(
   request: UserRequest,
@@ -31,7 +33,7 @@ export async function generateMusic(
     const { done, value } = await reader.read();
     if (done) break;
 
-    // Decode chunk
+    // Decode chunk and split into SSE lines.
     const text = decoder.decode(value);
     const lines = text.split("\n");
 
@@ -42,7 +44,7 @@ export async function generateMusic(
           const data = JSON.parse(line.slice(6));
           onEvent(data as StreamEvent);
         } catch {
-          // skip malformed events
+          // noop for malformed event lines
         }
       }
     }

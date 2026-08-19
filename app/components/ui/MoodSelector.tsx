@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-// What data this component needs from outside
+// MoodSelector lets the user choose either a mood or a custom key/scale.
+// It reports the selection back to the parent page through callbacks.
 interface MoodSelectorProps {
   onMoodChange: (mood: string | undefined) => void;
   onInputModeChange: (mode: "mood" | "custom") => void;
@@ -37,7 +38,7 @@ export default function MoodSelector({
   function handleInputModeToggle(mode: "mood" | "custom") {
     setInputMode(mode);
     onInputModeChange(mode);
-    // reset selections when toggling
+    // reset selections when switching between mood and custom input modes
     setSelectedMood(undefined);
     setSelectedKey(undefined);
     setSelectedMode(undefined);

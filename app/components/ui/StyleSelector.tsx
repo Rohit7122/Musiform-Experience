@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+// StyleSelector renders a small set of available generation styles.
 interface StyleSelectorProps {
   onStyleChange: (style: "Classical" | "Jazz") => void;
 }

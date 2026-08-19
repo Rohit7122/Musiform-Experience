@@ -1,3 +1,6 @@
+// Shared type definitions used across the UI and API helper.
+// These describe the request payload, backend stream events, and UI progress state.
+
 // What we send to the backend
 export interface UserRequest {
   input_mode: "mood" | "custom";

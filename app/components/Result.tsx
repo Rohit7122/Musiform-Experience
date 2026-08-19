@@ -2,6 +2,7 @@
 
 import { MidiStats } from "../types";
 
+// Result display after the backend finishes music generation.
 interface ResultProps {
   midiPath: string | undefined;
   description: string;
@@ -96,7 +97,7 @@ export default function Result({
 
       {/* Download button */}
       <a
-        href={`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/outputs/${midiPath.split("/").pop()}`}
+        href={`${process.env.NEXT_PUBLIC_MUSIFORM_API_URL || "http://localhost:8000"}/outputs/${midiPath.split("/").pop()}`}
         download
         className="inline-flex items-center justify-center gap-2 w-full py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-medium transition-all shadow-lg shadow-purple-500/25"
       >

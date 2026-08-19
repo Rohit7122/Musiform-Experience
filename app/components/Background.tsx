@@ -1,5 +1,6 @@
 "use client";
 
+// Visual background layer used to add subtle glow and depth behind the app.
 export default function Background() {
   return (
     <div className="fixed inset-0 -z-10 bg-gray-950 overflow-hidden">

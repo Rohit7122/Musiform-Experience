@@ -1,5 +1,6 @@
 "use client";
 
+// Sliders allow users to tune creativity, duration, and tempo values.
 interface SliderProps {
   onCreativityChange: (value: number) => void;
   onDurationChange: (value: number) => void;

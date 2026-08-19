@@ -20,6 +20,7 @@ export default function ProgressStream({
   description,
   isGenerating,
 }: ProgressStreamProps) {
+  // Don't render anything until generation starts or there is progress to show.
   if (!isGenerating && nodes.length === 0) return null;
 
   return (

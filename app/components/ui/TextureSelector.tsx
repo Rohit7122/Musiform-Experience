@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+// TextureSelector provides texture presets for the generated music.
 interface TextureSelectorProps {
   onTextureChange: (texture: "Simple" | "Normal" | "Rich") => void;
 }
